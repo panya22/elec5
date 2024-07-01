@@ -10,7 +10,7 @@ import {
     IonItem,
     IonIcon,
     IonList,
-    IonLabel
+    IonLabel,
 } from '@ionic/angular/standalone';
 
 const var_modules = [

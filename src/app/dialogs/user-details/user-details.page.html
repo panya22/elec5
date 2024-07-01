@@ -5,9 +5,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">user-details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<form (submit)="submit()" [formGroup]="fgDetails">
+  <ion-input
+  label="Outline input"
+  labelPlacement="floating"
+  placeholder="Enter Text"
+  formControlName="fld_fname">
+</ion-input>
+
+<ion-input
+label="Outline input"
+labelPlacement="floating"
+placeholder="Enter Text"
+formControlName="fld_mname">
+</ion-input>
+
+<ion-input
+label="Outline input"
+labelPlacement="floating"
+placeholder="Enter Text"
+formControlName="fld_lname">
+</ion-input>
+  <button ion-button type="submit" [disabled]="fgDetails.invalid">Submit</button>
+   <button ion-button type="button">Cancel</button>
+</form>
 </ion-content>

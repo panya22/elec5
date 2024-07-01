@@ -6,9 +6,9 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
+    @for (st of students; track $index) {
 
-    @for (st of user; track $index) {
-      <ion-item>
+      <ion-item (click)="getDetails(students.fld_recno)">
         <ion-label> {{ st.fld_fname }}  {{ st.fld_lname}}</ion-label>
       </ion-item>
     }
