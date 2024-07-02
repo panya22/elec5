@@ -5,28 +5,47 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<form (submit)="submit()" [formGroup]="fgDetails">
-  <ion-input
-  label="Outline input"
-  labelPlacement="floating"
-  placeholder="Enter Text"
-  formControlName="fld_fname">
-</ion-input>
-
-<ion-input
-label="Outline input"
-labelPlacement="floating"
-placeholder="Enter Text"
-formControlName="fld_mname">
-</ion-input>
-
-<ion-input
-label="Outline input"
-labelPlacement="floating"
-placeholder="Enter Text"
-formControlName="fld_lname">
-</ion-input>
-  <button ion-button type="submit" [disabled]="fgDetails.invalid">Submit</button>
-   <button ion-button type="button">Cancel</button>
-</form>
+  <form (submit)="submit()" [formGroup]="fgDetails">
+      <ion-input
+        label="First name"
+        labelPlacement="floating"
+        fill="outline"
+        formControlName="fld_fname">
+      </ion-input>
+      <ion-input
+        label="Middle name"
+        labelPlacement="floating"
+        fill="outline"
+        formControlName="fld_mname">
+      </ion-input>
+      <ion-input
+        label="Last name"
+        labelPlacement="floating"
+        fill="outline"
+        formControlName="fld_lname">
+      </ion-input>
+      <ion-input
+        label="Ext name"
+        labelPlacement="floating"
+        fill="outline"
+        formControlName="fld_extname">
+      </ion-input>
+      <ion-input
+        label="Age"
+        labelPlacement="floating"
+        fill="outline"
+        formControlName="fld_age">
+      </ion-input>
+      <button (click)="cancel()" type="button">
+        <ion-button>
+          Cancel
+        </ion-button>
+      </button>
+      <button type="submit" [disabled]="fgDetails.invalid">
+        <ion-button [disabled]="fgDetails.invalid">
+          Submit
+        </ion-button>
+      </button>
+  </form>
 </ion-content>
+

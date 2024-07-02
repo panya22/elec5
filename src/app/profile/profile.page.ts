@@ -1,9 +1,9 @@
 import { Component, OnInit,  } from '@angular/core';
-import { IonicModules } from '../ionic-module/ionic.module';
 import { DataService } from '../services/data.service';
 import { CustomaryModule } from '../ionic-module/customary.module';
+import { IonicModules } from 'src/app/ionic-module/ionic.module';
 import { UserDetailsPage } from '../dialogs/user-details/user-details.page';
-import { ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular/standalone';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -12,22 +12,20 @@ import { ModalController } from '@ionic/angular';
   imports: [IonicModules,CustomaryModule],
 
 })
-export class ProfilePage implements OnInit {
+export class ProfilePage implements OnInit  {
 
-  protected students: any;
+ protected students: any = [];
 
-  constructor(
+
+  constructor (
     private ds: DataService,
-    private modalCtrl: ModalController
-  )
-
-  {
-     this.getStudents()
-  };
-
-  ngOnInit(): void {
-    console.log("TAB2 ngOnInit")
+    private modalControler: ModalController) {
+    this.getStudents()
   }
+
+ngOnInit(): void {
+  console.log("hi")
+}
 
   private getStudents(): void {
     this.ds.request('getstudents', '', null).subscribe((res: any) => {
@@ -37,27 +35,35 @@ export class ProfilePage implements OnInit {
     });
   }
 
-async getDetails(id: number){
-  let student = this.students.find((students: any) => student.fld.recno == id)
 
-  const modal =  await this.modalCtrl.create({
-    component: UserDetailsPage,
-    componentProps: {student}
-  });
-  modal.present();
+  protected async getDetails(id: number) {
+    let student = this.students.find((student: any) => student.fld_recno == id)
 
-  const {data, role } = await modal.onWillDismiss();
+    const modal = await this.modalControler.create({
+      component: UserDetailsPage,
+      componentProps: {student}
+    });
+    modal.present();
 
-  if (role == "update"){
-    this.students = this.students.map((student:any) =>{
-      if(student.fld_recno == data.fld_recno){
-        return {...student, ...data}
-      }
-      return student
-    })
+    const { data, role } = await modal.onWillDismiss();
+    if (role === 'update') {
+      this.students = this.students.map((student: any) => {
+        if (student.fld_recno == data.fld_recno) {
+          return {...student, ...data}
+        }
+
+        return student
+      })
+    }
   }
 
-}
+
+
+
+
+
+
 
 
 }
+
