@@ -19,7 +19,7 @@ export class ProfilePage implements OnInit  {
 
   constructor (
     private ds: DataService,
-    private ModalController: ModalController) {
+    private modalControler: ModalController) {
     this.getStudents()
   }
 
@@ -28,7 +28,7 @@ ngOnInit(): void {
 }
 
   private getStudents(): void {
-    this.ds.request('getStudents', '', null).subscribe((res: any) => {
+    this.ds.request('getstudents', '', null).subscribe((res: any) => {
       console.log(res);
       this.students = res.data;
       console.log(this.students)
@@ -39,7 +39,7 @@ ngOnInit(): void {
   protected async getDetails(id: number) {
     let student = this.students.find((student: any) => student.fld_recno == id)
 
-    const modal = await this.ModalController.create({
+    const modal = await this.modalControler.create({
       component: UserDetailsPage,
       componentProps: {student}
     });
