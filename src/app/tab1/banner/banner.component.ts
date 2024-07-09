@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnInit } from '@angular/core';
 import { IonicSlides} from '@ionic/angular';
+import { SwiperOptions } from 'swiper/types';
 
 @Component({
   selector: 'app-banner',

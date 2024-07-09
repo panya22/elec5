@@ -21,8 +21,9 @@ export class Tab1Page implements OnInit {
 
   ngOnInit(): void {
     this.slides = [
-      { banner: '/assets/sample/evox.jpg' },
-      { banner: '/assets/sample/horse.png'},
+      { banner: '/assets/sample/pot1.jpg' },
+      { banner: '/assets/sample/pot2.jpg'},
+      { banner: '/assets/sample/pot3.jpg'}
     ];
   }
 }

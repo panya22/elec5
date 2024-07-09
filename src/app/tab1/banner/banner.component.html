@@ -1,5 +1,11 @@
 <div *ngIf="slides.length > 0">
-    <swiper-container [modules]="swiperModules">
+    <ion-title size="large">PLANTS</ion-title>
+    <swiper-container 
+    [modules]="swiperModules"
+    [slidesPerView]="1.2"
+    [initialSlide]="1"
+    [spaceBetween]="30"
+    [loop]="true">
         <swiper-slide *ngFor="let slide of slides">
             <img [src]="slide?.banner" />
         </swiper-slide>
