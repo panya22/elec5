@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import {
     IonHeader,
@@ -31,6 +31,7 @@ const var_modules = [
 ]
 @NgModule({
     imports: var_modules,
-    exports: var_modules
+    exports: var_modules,
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class IonicModules {}

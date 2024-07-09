@@ -7,7 +7,7 @@ export class DataService {
     private http: HttpClient
   ) { }
   public request(ep: string, params: string, load: any) {
-    const url: string = "http://localhost/bscs/api/";
+    const url: string = "http://localhost/testapi/api/";
     let result: any;
     let dt = { payload: load }
     let header = new HttpHeaders({

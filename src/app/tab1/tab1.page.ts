@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicModules } from 'src/app/ionic-module/ionic.module';
 import { CustomaryModule } from '../ionic-module/customary.module';
+import { BannerComponent } from './banner/banner.component';
 
 
 @Component({
@@ -8,8 +9,20 @@ import { CustomaryModule } from '../ionic-module/customary.module';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   standalone: true,
-  imports: [IonicModules, CustomaryModule],
+  imports: [IonicModules, CustomaryModule, BannerComponent],
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
+
+  slides: any[] = [
+    
+  ];
+
   constructor() {}
+
+  ngOnInit(): void {
+    this.slides = [
+      { banner: '/assets/sample/evox.jpg' },
+      { banner: '/assets/sample/horse.png'},
+    ];
+  }
 }
