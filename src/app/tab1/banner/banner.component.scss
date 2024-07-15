@@ -1,9 +1,9 @@
-ion-title {
+h1 {
     text-align: center;
-    margin-bottom: 2px;
+    padding-top: 30px;
 }
-div {
-    margin-top: 8vh;
+
+.swiper {
     height: 50vh;
     swiper-container {
         swiper-slide{
@@ -17,3 +17,4 @@ div {
         }
     }
 }
+
